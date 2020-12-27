@@ -38,13 +38,13 @@ public void Main(string args) {
     GridTerminalSystem.GetBlocksOfType<IMyCargoContainer>(Cargo);
     if(Cargo == null) return;
     
-    IMyShipConnector  Dropper    = null
+    IMyShipConnector  Dropper    = null;
     
     //Find the dropper 
     var ShipConnectorIndex = 0;
     for(ShipConnectorIndex = 0;ShipConnectorIndex<ShipConnectors.Count;ShipConnectorIndex++){
         if(ShipConnectors[ShipConnectorIndex].BlockDefinition.toString().EndsWith("/ConnectorSmall")){
-            Dropper = ShipConnectors[ShipConnectorIndex]
+            Dropper = ShipConnectors[ShipConnectorIndex];
         }
     }
 
@@ -66,7 +66,7 @@ public void Main(string args) {
         // Find list of items to drop 
         while(Inventory.IsItemAt(++i)){
             if(Array.Exists(unwantedItems, element => element == Items[i].Content.SubtypeName)){
-                Inventory.TransferItemTo(Dropper.GetInventory(0), i, null, true, Items[i].Amount)
+                Inventory.TransferItemTo(Dropper.GetInventory(0), i, null, true, Items[i].Amount);
             }
         }
 
